@@ -1,6 +1,10 @@
+
 source 'https://rubygems.org'
+
+gem 'rubocop', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.0.0'
+gem 'fog'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -13,37 +17,48 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
+gem 'cowsay' # , github: "johnnyt/cowsay"
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'pg_search'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# https://github.com/CanCanCommunity/cancancan
+gem 'kaminari'
 gem 'cancancan', '~> 1.10'
+gem 'chosen-rails'
+gem 'compass-rails'
+gem 'delayed_job_active_record'
+gem 'sinatra', '2.0.0.beta2'
+gem 'delayed_job_web'
 
-# https://github.com/plataformatec/simple_form
+# Bootstrap
+
+gem 'bootstrap-sass'
+gem 'bootstrap-glyphicons'
+
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 gem 'simple_form'
+gem 'nested_form'
+gem 'rack-cors', require: 'rack/cors'
 
-# bootstrap-sass https://github.com/twbs/bootstrap-sass
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'friendly_id'
+
+gem 'carrierwave', '>= 1.0.0.beta', '<2.0'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'awesome_print'
-  # https://github.com/rspec/rspec-rails
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5'
-  gem 'interactive_editor'
-  gem 'hirb'
+  gem 'factory_girl_rails'
+  gem 'faker', github: 'stympy/faker'
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -51,7 +66,11 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'meta_request'
+  gem 'awesome_print'
+  gem 'interactive_editor'
+  gem 'hirb'
+  gem 'rails-erd'
+  gem 'letter_opener', group: :development
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
