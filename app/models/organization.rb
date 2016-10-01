@@ -1,3 +1,3 @@
 class Organization < ApplicationRecord
-  has_many :provider
+  has_many :providers
 end
