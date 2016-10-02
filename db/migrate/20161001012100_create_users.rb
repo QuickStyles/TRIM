@@ -8,11 +8,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :gender
       t.string :password_digest
       t.string :type
-      t.references :organization, foreign_key: true
 
       t.timestamps
     end
-    add_index :users, :organization
     add_index :users, :email
   end
 end
