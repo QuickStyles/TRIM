@@ -8,7 +8,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <nav class="nav navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <p>TRIM</p>
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Become A TRIMMER", root_path, class:"btn btn-default"%></li> <%# NOTE: Bootstrap: Context-specific usage. should not be used inside nav navbar-nav %>
+        <li><%= link_to "Sign Up", root_path, role:"navigation"%></li>
+        <li><%= link_to "Login", root_path, role:"navigation"%></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
 </html>
