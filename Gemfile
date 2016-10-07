@@ -37,7 +37,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
-  gem 'faker', github: "stympy/faker"
+  gem 'faker'
   gem 'pry'
   gem 'pry-rails'
   gem 'capybara'
