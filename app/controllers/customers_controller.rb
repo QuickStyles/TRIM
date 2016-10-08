@@ -1,24 +1,24 @@
-class ProvidersController < ApplicationController
+class CustomersController < ApplicationController
   def new
-    @provider = Provider.new
-    @provider.build_user
+    @customer = Customer.new
+    @customer.build_user
   end
 
   def create
-    @provider = Provider.new
-    @provider.user = @provider.build_user(provider_params[:user_attributes])
-    @provider.user.person = @provider
-    if @provider.save
+    @customer = Customer.new
+    @customer.user = @customer.build_user(customer_params[:user_attributes])
+    @customer.user.person = @customer
+    if @customer.save
       redirect_to root_path
     else
-      render new_provider_path
+      render new_customer_path
     end
   end
 
   private
 
-  def provider_params
-    params.require(:provider).permit(user_attributes: [:first_name,
+  def customer_params
+    params.require(:customer).permit(user_attributes: [:first_name,
                                                        :last_name,
                                                        :email,
                                                        :phone_number,
