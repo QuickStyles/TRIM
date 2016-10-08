@@ -1,0 +1,12 @@
+<%= simple_form_for @customer do |c| %>
+  <%= c.simple_fields_for :user do |user| %>
+    <%= user.input :first_name %>
+    <%= user.input :last_name %>
+    <%= user.input :email %>
+    <%= user.input :phone_number %>
+    <%= user.input :gender %>
+    <%= user.input :password %>
+    <%= user.input :password_confirmation %>
+  <% end %>
+ <%= c.button :submit %>
+<% end %>
