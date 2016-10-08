@@ -1,0 +1,14 @@
+<h1>Providers#new</h1>
+<p>Find me in app/views/providers/new.html.erb</p>
+<%= simple_form_for @provider do |p| %>
+  <%= p.simple_fields_for :user do |user| %>
+    <%= user.input :first_name %>
+    <%= user.input :last_name %>
+    <%= user.input :email %>
+    <%= user.input :phone_number %>
+    <%= user.input :gender %>
+    <%= user.input :password %>
+    <%= user.input :password_confirmation %>
+  <% end %>
+ <%= p.button :submit %>
+<% end %>

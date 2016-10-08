@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :index, only: [:index]
+  resources :providers, only: [:new, :create]
   root "statics#index"
 end
