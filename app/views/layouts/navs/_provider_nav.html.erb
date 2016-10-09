@@ -1,12 +1,13 @@
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation" ><a href="#">Profile</a></li>
-  <li role="presentation" ><a href="#">Messages</a></li>
+  <li class="active navigation">
+    <%= link_to 'Overview', providers_path%>
+  </li>
+  <li class="navigation"></li>
+  <li class="navigation"></li>
 </ul>
 
 <script type="text/javascript">
-  $('.nav-tabs a').click(function (e) {
-    e.preventDefault()
+  $('.nav-tabs .navigation').click(function (e) {
     $(this).tab('show')
   })
 </script>

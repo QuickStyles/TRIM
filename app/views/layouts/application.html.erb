@@ -8,9 +8,38 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div>
-    <%= render 'layouts/navs/static_nav'  %>
-  </div>
+  <!-- <div> -->
+    <%# if user_is_provider? %>
+      <%#= render 'layouts/navs/provider_nav' %>
+    <%# elsif user_is_customer?%>
+      <%#= render 'layouts/navs/customer_nav' %>
+    <%# else %>
+      <%#= render 'layouts/navs/static_nav'  %>
+    <%# end %>
+  <!-- </div> -->
+  <nav class="nav navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to 'TRIM', root_path, class:"navbar-brand" %>
+      </div>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%#= link_to "Add Service", provider_services_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Become A TRIMMER", new_provider_path, class:"btn btn-default"%></li> <%# NOTE: Bootstrap: Context-specific usage. should not be used inside nav navbar-nav %>
+        <% if user_signed_in? && user_is_provider? %>
+          <%= "Hi #{current_user.first_name}" %>
+          <li><%= link_to "Add Service", new_service_path%></li>
+          <li><%= link_to "My Services", services_path%></li>
+          <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_customer_path, role:"navigation"%></li>
+          <li><%= link_to "Login", new_session_path, role:"navigation"%></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
     <%= yield %>
   </div>
