@@ -1,0 +1,9 @@
+<%= @service.name %>|<%= @service.rate %>|<%= @service.location %>|<%= @service.duration %>
+<hr>
+<% @service.bookings.each do |booking| %>
+  <%= booking.customer.user.first_name %>
+  <hr>
+  <%= booking.time_start %>
+  <hr>
+  <%= booking.time_end %>
+<% end %>
