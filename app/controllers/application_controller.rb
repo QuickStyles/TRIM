@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     redirect_to new_session_path unless user_signed_in?
   end
+  
+  def user_is_provider?
+    user_signed_in? && current_user.person_type == 'Provider'
+  end
+  helper_method :user_is_provider?
+  def user_is_customer?
+    user_signed_in? && current_user.person_type == 'Customer'
+  end
+  helper_method :user_is_customer?
 end

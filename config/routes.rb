@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
-  resources :providers, only: [:new, :create]
+  resources :providers, only: [:index, :new, :create]
+  resources :services, only: [:index, :show, :new, :create]
 
-  resources :customers, only: [:new, :create]
+  resources :customers, only: [:index, :new, :create]
   root "statics#index"
 end
