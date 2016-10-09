@@ -1,0 +1,11 @@
+<table class="table table-striped">
+  <% @services.each do |service| %>
+    <tr>
+      <td><%= link_to "#{service.provider.user.first_name}", new_service_booking_path(service) %></td>
+      <td><%= link_to "#{service.name}", new_service_booking_path(service) %></td>
+      <td><%= service.rate %></td>
+      <td><%= service.location %></td>
+      <td><%= service.duration %></td>
+    </tr>
+  <% end %>
+</table>

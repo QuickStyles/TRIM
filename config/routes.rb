@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   end
 
   resources :providers, only: [:index, :new, :create]
-  resources :services, only: [:index, :show, :new, :create]
+
+  resources :services, only: [:index, :show, :new, :create] do
+    resources :bookings, only: [:index, :show, :new, :create]
+  end
 
   resources :customers, only: [:index, :new, :create]
   root "statics#index"
