@@ -2,7 +2,7 @@
   <% @services.each do |service| %>
     <tr>
       <td><%= service.provider.user.first_name %></td>
-      <td><%= service.name %></td>
+      <td><%= link_to "#{service.name}", service_path(service) %></td>
       <td><%= service.rate %></td>
       <td><%= service.location %></td>
       <td><%= service.duration %></td>
