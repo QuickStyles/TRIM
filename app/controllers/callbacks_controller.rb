@@ -1,5 +1,5 @@
 class CallbacksController < ApplicationController
-  def index
+  def google_oauth2_response
     omniauth_data = request.env["omniauth.auth"]
     user = User.find_from_omniauth(omniauth_data)
     if session[:additional] == 'Provider'
@@ -14,6 +14,9 @@ class CallbacksController < ApplicationController
       session.delete(:additional)
       sign_in(user)
     end
+    byebug
+    session[:google_access_token] = omniauth_data['credentials']['token']
+    session[:google_access_refresh_token] = omniauth_data['credentials']['refresh_token']
     redirect_to root_path, notice: "Signed in from google"
   end
 end

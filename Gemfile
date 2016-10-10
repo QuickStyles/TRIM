@@ -32,7 +32,7 @@ gem 'simple_form'
 
 #APIs
 gem "omniauth-google-oauth2"
-
+gem 'google-api-client', require: 'google/apis/calendar_v3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
