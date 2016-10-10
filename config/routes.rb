@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :customers, only: [:index, :new, :create]
+
+  get "/auth/google_oauth2", as: :sign_in_with_google
+  get "/auth/google_oauth2/callback" => "callbacks#index"
+
   root "statics#index"
 end

@@ -2,6 +2,7 @@ class ProvidersController < ApplicationController
   def new
     @provider = Provider.new
     @provider.build_user
+    session[:additional] = 'Provider'
   end
 
   def create
