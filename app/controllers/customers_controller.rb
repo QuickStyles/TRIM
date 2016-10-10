@@ -6,6 +6,7 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     @customer.build_user
+    session[:additional] = 'Customer'
   end
 
   def create
