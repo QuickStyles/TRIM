@@ -14,7 +14,6 @@ class CallbacksController < ApplicationController
       session.delete(:additional)
       sign_in(user)
     end
-    byebug
     session[:google_access_token] = omniauth_data['credentials']['token']
     session[:google_access_refresh_token] = omniauth_data['credentials']['refresh_token']
     redirect_to root_path, notice: "Signed in from google"

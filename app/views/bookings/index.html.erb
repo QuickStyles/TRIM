@@ -1,2 +1,13 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
+<table class="table table-striped">
+  <% @services.each do |service| %>
+    <tr>
+      <td><%= service.provider.user.first_name %></td>
+      <td><%= link_to "#{service.name}", new_service_booking_path(service) %></td>
+      <td><%= service.rate %></td>
+      <td><%= service.location %></td>
+      <td><%= service.duration %></td>
+    </tr>
+  <% end %>
+</table>

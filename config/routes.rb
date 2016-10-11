@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :providers, only: [:index, :new, :create]
 
   resources :services, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:index, :show, :new, :create]
+    resources :bookings, only: [:show, :new, :create]
   end
+  resources :bookings, only: [:index]
 
   resources :customers, only: [:index, :new, :create]
 
