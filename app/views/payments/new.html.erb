@@ -1,0 +1,35 @@
+<h1>Payments#new</h1>
+<p>Find me in app/views/payments/new.html.erb</p>
+<h1>Paying: (<%= number_to_currency(@booking.service.rate) %>)</h1>
+
+<%= form_tag booking_payments_path(@booking), id: "server-form" do %>
+  <%= hidden_field_tag :stripe_token %>
+<% end %>
+<%= form_tag '', id: 'payment-form' do %>
+  <div class="payment-errors"></div>
+  <div class="form-group">
+     <%= label_tag :card_number %>
+     <%= text_field_tag :card_number, '', { class: 'form-control',
+                                            data: { stripe: 'number' } }  %>
+  </div>
+    <div class="form-group">
+      <label>
+        <span>Expiration (MM/YY)</span>
+        <%= text_field_tag :exp_month, '', { size: 2,
+                                             data: { stripe: 'exp_month' } }  %>
+      </label>
+      <span> / </span>
+      <%= text_field_tag :exp_year, '', { size: 2,
+                                         data: { stripe: 'exp_year' } }  %>
+    </div>
+  <div class="form-group">
+    <%= label_tag :cvc %>
+    <%= text_field_tag :cvc, '', { size: 4,
+                                   data: { stripe: 'cvc' } }  %>
+  </div>
+  <%= submit_tag "Book TRIM", class: "btn btn-primary" %>
+<% end %>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  Stripe.setPublishableKey('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+</script>

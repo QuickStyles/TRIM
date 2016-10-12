@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.service_id = params[:service_id]
     @booking.customer_id = current_user.person_id
     if @booking.save
-      redirect_to root_path
+      redirect_to new_booking_payment_path(@booking)
     else
       render :new
     end

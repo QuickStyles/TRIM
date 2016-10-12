@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   resources :providers, only: [:index, :new, :create]
 
-  resources :services, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:show, :new, :create]
+  resources :services, shallow: true, only: [:index, :show, :new, :create] do
+    resources :bookings, only: [:show, :new, :create] do
+      resources :payments, only: [:new, :create]
+    end
   end
   resources :bookings, only: [:index]
 
