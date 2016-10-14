@@ -16,6 +16,6 @@ Rails.application.routes.draw do
 
   get "/auth/google_oauth2", as: :sign_in_with_google
   get "/auth/:provider/callback" => "callbacks#google_oauth2_response"
-
+  get "/auth/:provider/callback" => "callbacks#calendars"
   root "statics#index"
 end

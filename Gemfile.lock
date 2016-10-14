@@ -316,7 +316,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   factory_girl_rails
   faker
-  google-api-client
+  google-api-client (~> 0.9.1)
   hirb
   interactive_editor
   jbuilder (~> 2.5)
