@@ -3,6 +3,10 @@ class CustomersController < ApplicationController
     @services = Service.all
   end
 
+  def show
+    @bookings = current_user.person.bookings
+  end
+
   def new
     @customer = Customer.new
     @customer.build_user

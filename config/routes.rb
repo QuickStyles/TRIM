@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+
+  get 'reviews/create'
+
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
@@ -8,14 +12,14 @@ Rails.application.routes.draw do
   resources :services, shallow: true, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:show, :new, :create] do
       resources :payments, only: [:new, :create]
+      resources :reviews, only: [:new, :create]
     end
   end
   resources :bookings, only: [:index]
 
-  resources :customers, only: [:index, :new, :create]
+  resources :customers, only: [:index, :show, :new, :create]
 
   get "/auth/google_oauth2", as: :sign_in_with_google
   get "/auth/:provider/callback" => "callbacks#google_oauth2_response"
-  get "/auth/:provider/callback" => "callbacks#calendars"
   root "statics#index"
 end

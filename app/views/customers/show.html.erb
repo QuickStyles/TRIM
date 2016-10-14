@@ -1,0 +1,9 @@
+<table class="table table-striped">
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= link_to "#{booking.service.name}", new_booking_review_path(booking) %></td>
+      <td><%= booking.service.rate %></td>
+      <td><%= booking.time_start %> to <%= booking.time_end %></td>
+    </tr>
+  <% end %>
+</table>

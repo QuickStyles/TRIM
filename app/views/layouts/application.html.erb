@@ -39,6 +39,7 @@
             <li><%= link_to "My Services", services_path%></li>
             <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
           <% elsif user_signed_in? && user_is_customer?%>
+            <li><%= link_to "History", customer_path(current_user) %></li>
             <li><%= link_to "Book a TRIM", bookings_path %></li>
             <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
           <% else %>

@@ -1,6 +1,6 @@
 class CallbacksController < ApplicationController
   def google_oauth2_response
-    omniauth_data = request.env["omniauth.auth"]
+    omniauth_data = request.env['omniauth.auth']
     user = User.find_from_omniauth(omniauth_data)
     if session[:additional] == 'Provider'
       user ||= User.create_provider_from_omniauth(omniauth_data)
@@ -20,6 +20,6 @@ class CallbacksController < ApplicationController
     service.authorization = session[:google_access_token]
     calendars = service.list_calendar_lists
     session[:main_calendar] = calendars.items[0]
-    redirect_to root_path, notice: "Signed in from google"
+    redirect_to root_path, notice: 'Signed in from google'
   end
 end
