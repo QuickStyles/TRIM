@@ -1,0 +1,9 @@
+<div class="col-md-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @service.name %></h3>
+      <h6>Income by year</h6>
+    </div>
+    <%= line_chart @data, @options %>
+  </div>
+</div>

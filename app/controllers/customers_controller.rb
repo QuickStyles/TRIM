@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   def index
-    @services = Service.all
+    @bookings = current_user.person.bookings.where('created_at >= ?', 1.week.ago)
   end
 
   def show

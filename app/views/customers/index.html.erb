@@ -1,11 +1,12 @@
+<p>Recent Bookings(Past 7 days)</p>
 <table class="table table-striped">
-  <% @services.each do |service| %>
+  <% @bookings.each do |booking| %>
     <tr>
-      <td><%= link_to "#{service.provider.user.first_name}", new_service_booking_path(service) %></td>
-      <td><%= link_to "#{service.name}", new_service_booking_path(service) %></td>
-      <td><%= service.rate %></td>
-      <td><%= service.location %></td>
-      <td><%= service.duration %></td>
+      <td><%= link_to "#{booking.service.provider.user.first_name}", new_service_booking_path(booking.service) %></td>
+      <td><%= link_to "#{booking.service.name}", new_service_booking_path(booking.service) %></td>
+      <td><%= booking.service.rate %></td>
+      <td><%= booking.service.location %></td>
+      <td><%= booking.service.duration %></td>
     </tr>
   <% end %>
 </table>

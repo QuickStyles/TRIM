@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
     @review = Review.new review_params
     @review.booking = @booking
     @review.customer = current_user.person
-    byebug
     if @review.save
       redirect_to customers_path
     else

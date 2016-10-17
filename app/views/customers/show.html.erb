@@ -1,9 +1,11 @@
 <table class="table table-striped">
-  <% @bookings.each do |booking| %>
+  <% @bookings.all.order('created_at').each do |booking| %>
     <tr>
       <td><%= link_to "#{booking.service.name}", new_booking_review_path(booking) %></td>
       <td><%= booking.service.rate %></td>
       <td><%= booking.time_start %> to <%= booking.time_end %></td>
+      <td><%= booking.created_at.to_formatted_s(:long_ordinal)  %></td>
+      <td><%= booking.reviews.present? %></td>
     </tr>
   <% end %>
 </table>

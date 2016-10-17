@@ -20,6 +20,12 @@ class CallbacksController < ApplicationController
     service.authorization = session[:google_access_token]
     calendars = service.list_calendar_lists
     session[:main_calendar] = calendars.items[0]
-    redirect_to root_path, notice: 'Signed in from google'
+    if current_user.person_type == 'Provider'
+      redirect_to providers_path
+    elsif current_user. person_type == 'Customer'
+      redirect_to customers_path
+    else
+      redirect_to root_path, notice: 'Error signing in'
+    end
   end
 end

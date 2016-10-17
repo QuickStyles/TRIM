@@ -57,6 +57,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chartjs-ror (3.0.2)
+      rails (>= 3.1)
     choice (0.2.0)
     coderay (1.1.1)
     coffee-rails (4.2.1)
@@ -313,6 +315,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capybara
+  chartjs-ror
   coffee-rails (~> 4.2)
   factory_girl_rails
   faker

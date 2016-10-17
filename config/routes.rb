@@ -14,7 +14,10 @@ Rails.application.routes.draw do
       resources :payments, only: [:new, :create]
       resources :reviews, only: [:new, :create]
     end
+    resources :service_statistics, only: [:show]
   end
+  resources :service_statistics, only: [:index]
+
   resources :bookings, only: [:index]
 
   resources :customers, only: [:index, :show, :new, :create]
