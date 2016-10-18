@@ -1,12 +1,37 @@
 <p>Recent Bookings(Past 7 days)</p>
-<table class="table table-striped">
+<div class="container">
   <% @bookings.each do |booking| %>
-    <tr>
-      <td><%= link_to "#{booking.service.provider.user.first_name}", new_service_booking_path(booking.service) %></td>
-      <td><%= link_to "#{booking.service.name}", new_service_booking_path(booking.service) %></td>
-      <td><%= booking.service.rate %></td>
-      <td><%= booking.service.location %></td>
-      <td><%= booking.service.duration %></td>
-    </tr>
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= link_to "#{booking.service.name}", new_service_booking_path(booking.service) %></h3>
+          <h5 class="panel-title"><%= link_to "#{booking.service.provider.user.first_name}", new_service_booking_path(booking.service) %></h5>
+        </div>
+        <table class="table table-triped table-bordered">
+          <tr>
+            <td>
+              Created on
+            </td>
+            <td>
+              When
+            </td>
+            <td>
+              Location
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= booking.created_at.to_formatted_s(:long_ordinal) %>
+            </td>
+            <td>
+              <%= booking.time_start.to_formatted_s(:long_ordinal) %> - <%= booking.time_end.to_formatted_s(:long_ordinal) %>
+            </td>
+            <td>
+              <%= booking.service.location %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   <% end %>
-</table>
+</div>

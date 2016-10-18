@@ -7,29 +7,30 @@
   </div>
 </div>
 
-<div class="panel panel-warning">
-  <div class="panel-heading">
-    <h3 class="panel-title">Completed Bookings</h3>
-  </div>
-  <table class="table table-striped table-bordered">
-    <tr>
-      <td>
-        Customer Name
-      </td>
-      <td>
-        Booking Created
-      </td>
-      <td>
-        Booking Date
-      </td>
-      <td>
-        Booking Completed?
-      </td>
-      <td>
-        Tip
-      </td>
-    </tr>
-    <% @service.bookings.where('time_end < ?', Time.now).each do |booking| %>
+<div class="col-md-6">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">Current Bookings</h3>
+    </div>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <td>
+          Customer Name
+        </td>
+        <td>
+          Booking Created
+        </td>
+        <td>
+          Booking Date
+        </td>
+        <td>
+          Booking Completed?
+        </td>
+        <td>
+          Tip
+        </td>
+      </tr>
+      <% @service.bookings.where('time_end > ?', Time.now).each do |booking| %>
       <tr>
         <td>
           <%= booking.customer.user.first_name %> <%= booking.customer.user.last_name %>
@@ -47,32 +48,35 @@
           tip here
         </td>
       </tr>
-    <% end %>
-  </table>
+      <% end %>
+    </table>
+  </div>
 </div>
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-title">Current Bookings</h3>
-  </div>
-  <table class="table table-striped table-bordered">
-    <tr>
-      <td>
-        Customer Name
-      </td>
-      <td>
-        Booking Created
-      </td>
-      <td>
-        Booking Date
-      </td>
-      <td>
-        Booking Completed?
-      </td>
-      <td>
-        Tip
-      </td>
-    </tr>
-    <% @service.bookings.where('time_end > ?', Time.now).each do |booking| %>
+
+<div class="col-md-6">
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h3 class="panel-title">Completed Bookings</h3>
+    </div>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <td>
+          Customer Name
+        </td>
+        <td>
+          Booking Created
+        </td>
+        <td>
+          Booking Date
+        </td>
+        <td>
+          Booking Completed?
+        </td>
+        <td>
+          Tip
+        </td>
+      </tr>
+      <% @service.bookings.where('time_end < ?', Time.now).each do |booking| %>
       <tr>
         <td>
           <%= booking.customer.user.first_name %> <%= booking.customer.user.last_name %>
@@ -90,6 +94,7 @@
           tip here
         </td>
       </tr>
-    <% end %>
-  </table>
+      <% end %>
+    </table>
+  </div>
 </div>

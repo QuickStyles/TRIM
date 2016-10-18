@@ -1,14 +1,32 @@
-<%= simple_form_for @customer do |c| %>
-  <%= c.simple_fields_for :user do |user| %>
-    <%= user.input :first_name %>
-    <%= user.input :last_name %>
-    <%= user.input :email %>
-    <%= user.input :phone_number %>
-    <%= user.input :gender %>
-    <%= user.input :password %>
-    <%= user.input :password_confirmation %>
-  <% end %>
- <%= c.button :submit %>
-<% end %>
+<div class="col-md-6">
+  <div class="panel panel-primary sign-up-form">
+    <div class="panel-heading">
+      <h3 class="panel-title">Create a TRIM Account</h3>
+    </div>
+    <div class="panel-body">
+      <%= simple_form_for @customer do |c| %>
+        <%= c.simple_fields_for :user do |user| %>
+          <%= user.input :first_name %>
+          <%= user.input :last_name %>
+          <%= user.input :email %>
+          <%= user.input :phone_number %>
+          <%= user.input :gender %>
+          <%= user.input :password %>
+          <%= user.input :password_confirmation %>
+        <% end %>
+       <%= c.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<li><%= link_to "Google", sign_in_with_google_path %></li>
+<div class="col-md-6">
+  <div class="panel panel-primary sign-up-form">
+    <div class="panel-heading">
+      <h3 class="panel-title">Or</h3>
+    </div>
+    <div class="panel-body">
+      <%= link_to "Sign Up With Google", sign_in_with_google_path %>
+    </div>
+  </div>
+</div>
