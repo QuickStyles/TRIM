@@ -43,7 +43,6 @@
             <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
           <% else %>
             <li><%= link_to "Become A TRIMMER", new_provider_path, class:"btn btn-default"%></li>
-            <li><%= link_to "Google", sign_in_with_google_path %></li>
             <li><%= link_to "Sign Up", new_customer_path, role:"navigation"%></li>
             <li><%= link_to "Login", new_session_path, role:"navigation"%></li>
           <% end %>

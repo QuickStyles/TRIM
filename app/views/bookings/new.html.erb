@@ -1,7 +1,20 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
-<%= simple_form_for [@service, @booking] do |b| %>
-  <%= b.input :time_start %>
-  <%= b.input :time_end %>
-  <%= b.button :submit %>
-<% end %>
+<div class="col-md-3">
+
+</div>
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @service.name %> | <%= number_to_currency(@service.rate) %></h3>
+    </div>
+    <div class="panel-body">
+      <%= simple_form_for [@service, @booking] do |b| %>
+      <%= b.input :time_start %>
+      <%= b.input :time_end %>
+      <%= b.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-3">
+
+</div>

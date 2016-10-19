@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @bookings = current_user.person.bookings
+    @bookings = current_user.person.bookings.order(time_start: :desc)
   end
 
   def new

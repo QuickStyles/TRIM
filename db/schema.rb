@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20161011221738) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.datetime "created_at", null: false
+    t.datetime "created_at" ,null: false
     t.datetime "updated_at", null: false
   end
 
