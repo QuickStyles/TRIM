@@ -1,11 +1,15 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2 class="panel-title"><%= @service.name %></h2>
-  </div>
-  <div class="panel-body">
-    Current Rate: $<%= @service.rate %> | Current Location: <%= @service.location %> | <%= link_to 'Statistics', service_statistic_path(@service) %>
+<div class="col-md-1"></div>
+<div class="col-md-10">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title"><%= @service.name %></h2>
+    </div>
+    <div class="panel-body">
+      Current Rate: $<%= @service.rate %> | Current Location: <%= @service.location %> | <%= link_to 'Statistics', service_statistic_path(@service) %>
+    </div>
   </div>
 </div>
+<div class="col-md-1"></div>
 
 <div class="col-md-6">
   <div class="panel panel-success">
@@ -75,6 +79,9 @@
         <td>
           Tip
         </td>
+        <td>
+          Review
+        </td>
       </tr>
       <% @service.bookings.where('time_end < ?', Time.now).each do |booking| %>
       <tr>
@@ -92,6 +99,9 @@
         </td>
         <td>
           tip here
+        </td>
+        <td>
+          <%= booking.reviews %>
         </td>
       </tr>
       <% end %>
