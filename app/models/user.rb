@@ -3,6 +3,12 @@ class User < ApplicationRecord
   serialize :google_raw_info
   belongs_to :person, polymorphic: true
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :person_id, presence: true
+  validates :person_type, presence: true
+
   def self.find_from_omniauth(omniauth_data)
     User.where(provider: omniauth_data['provider'],
                uid: omniauth_data['uid']).first
@@ -14,7 +20,7 @@ class User < ApplicationRecord
                 first_name: omniauth_data['info']['first_name'],
                 last_name: omniauth_data['info']['last_name'],
                 email: omniauth_data['info']['email'],
-                person: Provider.new,
+                person: Provider.create,
                 gender: omniauth_data['extra']['raw_info']['gender'],
                 google_raw_info: omniauth_data,
                 password: SecureRandom.hex(16))
@@ -25,7 +31,7 @@ class User < ApplicationRecord
                 first_name: omniauth_data['info']['first_name'],
                 last_name: omniauth_data['info']['last_name'],
                 email: omniauth_data['info']['email'],
-                person: Customer.new,
+                person: Customer.create,
                 gender: omniauth_data['extra']['raw_info']['gender'],
                 google_raw_info: omniauth_data,
                 password: SecureRandom.hex(16))
