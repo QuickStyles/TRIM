@@ -1,6 +1,6 @@
 class CallbacksController < ApplicationController
-  def index
-    omniauth_data = request.env["omniauth.auth"]
+  def google_oauth2_response
+    omniauth_data = request.env['omniauth.auth']
     user = User.find_from_omniauth(omniauth_data)
     if session[:additional] == 'Provider'
       user ||= User.create_provider_from_omniauth(omniauth_data)
@@ -14,6 +14,18 @@ class CallbacksController < ApplicationController
       session.delete(:additional)
       sign_in(user)
     end
-    redirect_to root_path, notice: "Signed in from google"
+    session[:google_access_token] = omniauth_data['credentials']['token']
+    session[:google_access_refresh_token] = omniauth_data['credentials']['refresh_token']
+    service = Google::Apis::CalendarV3::CalendarService.new
+    service.authorization = session[:google_access_token]
+    calendars = service.list_calendar_lists
+    session[:main_calendar] = calendars.items[0]
+    if current_user.person_type == 'Provider'
+      redirect_to providers_path
+    elsif current_user. person_type == 'Customer'
+      redirect_to customers_path
+    else
+      redirect_to root_path, notice: 'Error signing in'
+    end
   end
 end

@@ -1,0 +1,2 @@
+module ServiceStatisticsHelper
+end

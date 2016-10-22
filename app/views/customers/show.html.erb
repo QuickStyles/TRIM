@@ -1,0 +1,37 @@
+<div class="col-md-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">History</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <td>
+            Service Name
+          </td>
+          <td>
+            Service Rate
+          </td>
+          <td>
+            Appointment Time
+          </td>
+          <td>
+            Booked on
+          </td>
+          <td>
+            reviewed?
+          </td>
+        </tr>
+        <% @bookings.all.order('created_at').each do |booking| %>
+        <tr>
+          <td><%= link_to "#{booking.service.name}", new_booking_review_path(booking) %></td>
+          <td><%= number_to_currency(booking.service.rate) %></td>
+          <td><%= booking.time_start.to_formatted_s(:long_ordinal) %> - <%= booking.time_end.to_formatted_s(:long_ordinal) %></td>
+          <td><%= booking.created_at.to_formatted_s(:long_ordinal)  %></td>
+          <td><%= booking.reviews.present? %> | <%= link_to 'Leave a Review', new_booking_review_path(booking) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

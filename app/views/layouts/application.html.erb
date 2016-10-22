@@ -3,7 +3,6 @@
   <head>
     <title>TRIM</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,39 +16,39 @@
       <%#= render 'layouts/navs/static_nav'  %>
     <%# end %>
   <!-- </div> -->
-  <nav class="nav navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <% if user_signed_in? && user_is_provider? %>
-          <%= link_to 'TRIM', providers_path, class:"navbar-brand" %>
-        <% elsif user_signed_in? && user_is_customer? %>
-          <%= link_to 'TRIM', customers_path, class:"navbar-brand" %>
-        <% else %>
-          <%= link_to 'TRIM', root_path, class:"navbar-brand" %>
-        <% end %>
+  <body>
+    <nav id="main-nav" class="nav navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <% if user_signed_in? && user_is_provider? %>
+            <%= link_to 'TRIM', providers_path, class:"navbar-brand" %>
+          <% elsif user_signed_in? && user_is_customer? %>
+            <%= link_to 'TRIM', customers_path, class:"navbar-brand" %>
+          <% else %>
+            <%= link_to 'TRIM', root_path, class:"navbar-brand" %>
+          <% end %>
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%#= link_to "Add Service", provider_services_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? && user_is_provider? %>
+            <%= "Hi #{current_user.first_name}" %>
+            <li><%= link_to "Add Service", new_service_path%></li>
+            <li><%= link_to "My Services", services_path%></li>
+            <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
+          <% elsif user_signed_in? && user_is_customer?%>
+            <li><%= link_to "History", customer_path(current_user) %></li>
+            <li><%= link_to "Book a TRIM", bookings_path %></li>
+            <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
+          <% else %>
+            <li><%= link_to "Become A TRIMMER", new_provider_path, class:"btn btn-default"%></li>
+            <li><%= link_to "Sign Up", new_customer_path, role:"navigation"%></li>
+            <li><%= link_to "Login", new_session_path, role:"navigation"%></li>
+          <% end %>
+        </ul>
       </div>
-      <ul class="nav navbar-nav navbar-left">
-        <li><%#= link_to "Add Service", provider_services_path %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Become A TRIMMER", new_provider_path, class:"btn btn-default"%></li> <%# NOTE: Bootstrap: Context-specific usage. should not be used inside nav navbar-nav %>
-        <% if user_signed_in? && user_is_provider? %>
-          <%= "Hi #{current_user.first_name}" %>
-          <li><%= link_to "Add Service", new_service_path%></li>
-          <li><%= link_to "My Services", services_path%></li>
-          <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
-        <% elsif user_signed_in? && user_is_customer?%>
-          <li><%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"} %></li>
-        <% else %>
-          <li><%= link_to "Google", sign_in_with_google_path %></li>
-          <li><%= link_to "Sign Up", new_customer_path, role:"navigation"%></li>
-          <li><%= link_to "Login", new_session_path, role:"navigation"%></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container">
+    </nav>
     <%= yield %>
-  </div>
+  </body>
 </html>

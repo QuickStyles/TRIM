@@ -1,4 +1,8 @@
 class ProvidersController < ApplicationController
+  def index
+    @services = current_user.person.services
+  end
+
   def new
     @provider = Provider.new
     @provider.build_user

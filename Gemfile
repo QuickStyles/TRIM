@@ -27,12 +27,16 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'chartjs-ror'
+
 gem 'bootstrap-sass'
 gem 'simple_form'
 
 #APIs
 gem "omniauth-google-oauth2"
-
+gem 'google-api-client', '~> 0.9.1', require: 'google/apis/calendar_v3'
+#stripe
+gem 'stripe'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

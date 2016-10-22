@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010020823) do
+ActiveRecord::Schema.define(version: 20161011221738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20161010020823) do
     t.datetime "time_end"
     t.integer  "service_id"
     t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "stripe_txn_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
     t.index ["service_id"], name: "index_bookings_on_service_id", using: :btree
   end
@@ -79,11 +80,12 @@ ActiveRecord::Schema.define(version: 20161010020823) do
     t.string   "password_digest"
     t.integer  "person_id"
     t.string   "person_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "uid"
     t.string   "provider"
     t.string   "google_raw_info"
+    t.string   "stripe_customer_id"
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", using: :btree
   end
 

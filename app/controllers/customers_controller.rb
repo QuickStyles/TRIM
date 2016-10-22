@@ -1,6 +1,10 @@
 class CustomersController < ApplicationController
   def index
-    @services = Service.all
+    @bookings = current_user.person.bookings.where('created_at >= ?', 1.week.ago).order(created_at: :desc)
+  end
+
+  def show
+    @bookings = current_user.person.bookings.order(time_start: :desc)
   end
 
   def new
