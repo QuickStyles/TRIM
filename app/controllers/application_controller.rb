@@ -32,4 +32,20 @@ class ApplicationController < ActionController::Base
     @provider ||= Provider.find(current_user.person) if user_signed_in?
   end
   helper_method :provider
+
+  def past_bookings(service)
+    # @past_bookings = service.bookings.where('time_end < ?', Time.now).count
+    Booking.all.where(service_id: service).where('time_end < ?', Time.now).count
+  end
+  helper_method :past_bookings
+
+  def future_bookings(service)
+    Booking.all.where(service_id: service).where('time_end > ?', Time.now).count
+  end
+  helper_method :future_bookings
+
+  def current_bookings(service)
+    Booking.all.where(service_id: service).where(time_end: Time.now.beginning_of_day..Time.now.end_of_day).count
+  end
+  helper_method :current_bookings
 end

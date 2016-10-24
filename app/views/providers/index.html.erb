@@ -1,1 +1,9 @@
-
+<ul class="nav nav-tabs">
+  <li class="active navigation">
+    <%= link_to "Add Service", new_service_path%>
+  </li>
+  <li>
+    <%= link_to "My Services", services_path%>
+  </li>
+</ul>
+<%= react_component 'ProviderServices', { data: @services } %>
