@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :person_id, presence: true
   validates :person_type, presence: true
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def self.find_from_omniauth(omniauth_data)
     User.where(provider: omniauth_data['provider'],
                uid: omniauth_data['uid']).first

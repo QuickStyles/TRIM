@@ -15,12 +15,4 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "statics";
-
-#main-nav {
-  background-color: hsl(200, 25%, 10%);
-  color: #CFD8DC;
-  margin-bottom: 10px;
-}
-body {
-  background-color: hsl(200, 25%, 15%);
-}
+ @import "bootstrap_overrides";

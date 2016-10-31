@@ -8,10 +8,11 @@
     </li>
   </ul>
 </div>
+
 <div class="container-fluid">
   <% @services.each do|service| %>
     <div class="col-md-4">
-      <div class="panel panel-info service-panel" data-href="<% link_to service_path(service) %>">
+      <div class="panel panel-default service-panel" data-href="<% link_to service_path(service) %>">
         <div class="panel-heading">
           <%= link_to "#{service.name}", service_path(service) %>
           <br>
@@ -25,7 +26,7 @@
             add weekly figures
           </p>
         </div>
-        <table class="table table-striped table-bordered ">
+        <table class="table  table-bordered ">
           <tr>
             <td>
               Past Bookings

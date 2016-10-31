@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <% @services.each do |service| %>
   <div class="col-md-4">
-    <div class="panel panel-info">
+    <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><%= link_to "#{service.name}", new_service_booking_path(service) %></h3>
         <h5 class="panel-titile">Provided by: <%= service.provider.user.first_name %></h5>
       </div>
-      <table class="table table-striped table-bordered">
+      <table class="table  table-bordered">
         <tr>
           <td>
             Rate

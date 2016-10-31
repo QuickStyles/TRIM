@@ -1,0 +1,58 @@
+#main-nav {
+  background-color: hsl(200, 25%, 6%);
+  color: #CFD8DC;
+  margin-bottom: 10px;
+}
+body {
+  background-color: hsl(200, 25%, 12%);
+  color: #78909C;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+  border-color: #37474F;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: hsl(200, 25%, 10%);
+  color: #ECEFF1;
+  border: 1px;
+  border-color: hsl(200, 25%, 15%);
+  border-bottom-color: transparent;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: hsl(200, 25%, 10%);
+  border-color: hsl(200, 25%, 15%)
+}
+
+.nav-tabs {
+  border-bottom: 1px solid hsl(200, 25%, 10%);
+}
+
+.tab-content {
+  background-color: hsl(200, 25%, 15%);
+  padding-top: 10px;
+}
+
+.tab-pane {
+  background-color: hsl(200, 25%, 10%);
+  z-index: 1;
+}
+
+.panel-default > .panel-heading {
+  background-color: #37474F;
+  border: none;
+  color: #78909C;
+}
+
+.panel-default {
+  border: 1px solid hsl(200, 25%, 25%);
+}
+
+.list-group-item {
+  background-color: inherit;;
+  border: 1px solid #37474F;
+}
+
+.panel {
+  background-color: #455A64;
+}

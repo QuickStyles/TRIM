@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <% @services.each do |service| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= service.name %></h3>
+    </div>
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          Appointment Date
+        </td>
+        <td>
+          Client
+        </td>
+      </tr>
+      <% future_bookings(service).each do |booking| %>
+      <tr>
+        <td>
+          <%= booking.time_start %>
+        </td>
+        <td>
+          <%= booking.customer.user.first_name %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <% end %>
+</div>
