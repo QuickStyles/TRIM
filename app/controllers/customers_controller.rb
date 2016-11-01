@@ -14,11 +14,11 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.new
+    @customer = Customer.create
     @customer.user = @customer.build_user(customer_params[:user_attributes])
     @customer.user.person = @customer
     if @customer.save
-      redirect_to root_path
+      redirect_to new_session_path
     else
       render new_customer_path
     end

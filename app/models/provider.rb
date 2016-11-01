@@ -28,7 +28,7 @@ class Provider < ApplicationRecord
       end
       revenue_data << month_revenue.reduce(:+)
     end
-    revenue_data
+    revenue_data.include?(nil) ? [0] : revenue_data
   end
 
   def booking_data(year)
@@ -41,7 +41,7 @@ class Provider < ApplicationRecord
       end
       booking_data << month_booking.reduce(:+)
     end
-    booking_data
+    booking_data.include?(nil) ? [0] : booking_data
   end
 
   def annual_revenue

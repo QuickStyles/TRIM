@@ -21,11 +21,11 @@ class ProvidersController < ApplicationController
   end
 
   def create
-    @provider = Provider.new
+    @provider = Provider.create
     @provider.user = @provider.build_user(provider_params[:user_attributes])
     @provider.user.person = @provider
     if @provider.save
-      redirect_to root_path
+      redirect_to new_session_path
     else
       render new_provider_path
     end
