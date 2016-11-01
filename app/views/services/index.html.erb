@@ -12,7 +12,7 @@
 <div class="container-fluid">
   <% @services.each do|service| %>
     <div class="col-md-4">
-      <div class="panel panel-default service-panel" data-href="<% link_to service_path(service) %>">
+      <div class="panel panel-primary service-panel" data-href="<% link_to service_path(service) %>">
         <div class="panel-heading">
           <%= link_to "#{service.name}", service_path(service) %>
           <br>

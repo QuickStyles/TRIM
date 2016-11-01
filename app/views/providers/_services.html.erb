@@ -1,8 +1,8 @@
 <% @services.each do|service| %>
   <div class="col-md-4">
-    <div class="panel panel-default" data-href="<% link_to service_path(service) %>">
+    <div class="panel panel-primary" data-href="<% link_to service_path(service) %>">
       <div class="panel-heading">
-        <%= link_to "#{service.name}", service_path(service) %>
+        <%= service.name %>
         <br>
         $<%= service.rate %>
       </div>

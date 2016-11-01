@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email params[:email]
-    session[:user_id] = user.id if user&.authenticate(params[:password])
-    if current_user.person_type == 'Provider'
+    session[:user_id] = user.id if user.present? && user.authenticate(params[:password])
+    if user_signed_in? && current_user.person_type == 'Provider'
       redirect_to providers_path
-    elsif current_user. person_type == 'Customer'
+    elsif user_signed_in? && current_user.person_type == 'Customer'
       redirect_to customers_path
     else
-      redirect_to root_path, notice: 'Error signing in'
+      render :new, notice: 'Error signing in'
     end
   end
 
