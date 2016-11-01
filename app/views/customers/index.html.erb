@@ -2,7 +2,7 @@
 <div class="container">
   <% @bookings.each do |booking| %>
     <div class="col-md-4">
-      <div class="panel panel-info">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title"><%= link_to "#{booking.service.name}", new_service_booking_path(booking.service) %></h3>
           <h5 class="panel-title"><%= link_to "#{booking.service.provider.user.first_name}", new_service_booking_path(booking.service) %></h5>

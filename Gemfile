@@ -32,6 +32,8 @@ gem 'chartjs-ror'
 gem 'bootstrap-sass'
 gem 'simple_form'
 
+gem 'react-rails'
+
 #APIs
 gem "omniauth-google-oauth2"
 gem 'google-api-client', '~> 0.9.1', require: 'google/apis/calendar_v3'

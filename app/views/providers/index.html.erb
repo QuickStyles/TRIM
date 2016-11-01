@@ -1,1 +1,14 @@
-
+<div class="container-fluid">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#overview" aria-controls="Overview" role="tab" data-toggle="tab">Overview</a></li>
+    <li role="presentation"><a href="#appointments" aria-controls="Appointments" role="tab" data-toggle="tab">Appointments</a></li>
+    <li role="presentation"><a href="#history" aria-controls="History" role="tab" data-toggle="tab">History</a></li>
+    <li role="presentation"><a href="#extratab" aria-controls="ExtraTab" role="tab" data-toggle="tab">Services</a></li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="overview"><%= render partial: "overview" %></div>
+    <div role="tabpanel" class="tab-pane" id="appointments"><%= render partial: "appointments" %></div>
+    <div role="tabpanel" class="tab-pane" id="history"><%= render partial: "appointments_history" %></div>
+    <div role="tabpanel" class="tab-pane" id="extratab"><%= render partial: "services" %></div>
+  </div>
+</div>

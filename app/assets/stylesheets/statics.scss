@@ -1,27 +1,32 @@
 // Place all the styles related to the statics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.jumbotron {
-  padding: 0;
-  &#static-background {
-  background-image: url('barber_shop_static_background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 600px;
-  }
+hr {
+  color: gray;
+  border-style: inset;
+  width: 500px;
+  border-width: 1px;
+  align-self: auto;
+  align-items: stretch;
+  margin-left: auto;
+  margin-right: auto;
 }
-.black-box-ela {
-  background-color: rgba(0, 0 , 0, 0.6);
-  height: 600px;
-  width: 100%;
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#jumbotron-text {
-  text-align: center;
-  color: white;
-  padding-top: 250px;
+
+.button-group {
+  display: flex;
+  flex-direction: row;
 }
-.btn.btn-default {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 5px;
+
+.btn-default {
+  background-color: #455A64;
+  border-color: #37474F
+}
+
+.btn-default:hover {
+  background-color: #546E7A
 }

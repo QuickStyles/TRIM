@@ -1,7 +1,11 @@
-<div>
-  <div class="jumbotron" id="static-background">
-    <div class="black-box-ela">
-      <h2 id="jumbotron-text">TRIM phrase here</h2>
-    </div>
+<div class="flex-container">
+  <div class="trim-logo">
+    <h1 id="logo">TRIM</h1>
+  </div>
+  <hr>
+  <div class="button-group">
+    <%= link_to "Become A TRIMMER", new_provider_path, class:"btn btn-default btn-lg"%>
+    <%= link_to "Sign Up", new_customer_path, role:"navigation", class:'btn btn-default btn-lg'%>
+    <%= link_to "Login", new_session_path, role:"navigation", class:'btn btn-default btn-lg'%>
   </div>
 </div>

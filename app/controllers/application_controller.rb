@@ -32,4 +32,72 @@ class ApplicationController < ActionController::Base
     @provider ||= Provider.find(current_user.person) if user_signed_in?
   end
   helper_method :provider
+
+  def current_year
+    Time.current.year
+  end
+
+  def previous_year
+    Time.current.last_year.year
+  end
+
+  def past_bookings(service)
+    # @past_bookings = service.bookings.where('time_end < ?', Time.now).count
+    Booking.all.where(service_id: service).where('time_end < ?', Time.now).count
+  end
+  helper_method :past_bookings
+
+  def future_bookings(service)
+    Booking.all.where(service_id: service).where('time_end > ?', Time.now).count
+  end
+  helper_method :future_bookings
+
+  def current_bookings(service)
+    Booking.all.where(service_id: service).where(time_end: Time.now.beginning_of_day..Time.now.end_of_day).count
+  end
+  helper_method :current_bookings
+
+  def future_bookings(service)
+    Booking.all.where(service_id: service).where('time_end > ?', Time.now)
+  end
+  helper_method :future_bookings
+
+  def chart_data(previous_year_data, current_year_data)
+    {
+      labels: %w(January
+                 February
+                 March
+                 April
+                 May
+                 June
+                 July
+                 August
+                 September
+                 October
+                 November
+                 December),
+      datasets: [
+        {
+          label: 'Previous Year',
+          backgroundColor: 'rgba(220,220,220,0.2)',
+          borderColor: 'rgba(220,220,220,1)',
+          data: previous_year_data
+        },
+        {
+          label: 'Current Year',
+          backgroundColor: 'rgba(151,187,205,0.2)',
+          borderColor: 'rgba(151,187,205,1)',
+          data: current_year_data
+        }
+      ]
+    }
+  end
+  helper_method :chart_data
+  def chart_options
+    {
+      width: '200px',
+      height: '75px'
+    }
+  end
+  helper_method :chart_options
 end
