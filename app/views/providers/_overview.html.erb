@@ -1,0 +1,36 @@
+<div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Revenue</h3>
+    </div>
+      <li class="list-group-item col-md-6">Annual Revenue
+        <span class="label label-default">
+          <%= number_to_currency(provider.annual_revenue) %>
+        </span>
+      </li>
+      <li class="list-group-item col-md-6">Lifetime Revenue
+        <span class="label label-default">
+
+        </span>
+      </li>
+    <%= line_chart @revenue_data, chart_options %>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Appointments</h3>
+    </div>
+    <li class="list-group-item col-md-6">Annual Appointments
+      <span class="label label-default">
+        <%= provider.annual_bookings %>
+      </span>
+    </li>
+    <li class="list-group-item col-md-6">Lifetime Appointments
+      <span class="label label-default">
+      </span>
+    </li>
+    <%= bar_chart @booking_data, chart_options %>
+  </div>
+</div>

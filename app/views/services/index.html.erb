@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <ul class="nav nav-tabs">
+    <li class="active navigation">
+      <%= link_to "Add Service", new_service_path%>
+    </li>
+    <li>
+      <%= link_to "My Services", services_path%>
+    </li>
+  </ul>
+</div>
+
+<div class="container-fluid">
+  <% @services.each do|service| %>
+    <div class="col-md-4">
+      <div class="panel panel-primary service-panel" data-href="<% link_to service_path(service) %>">
+        <div class="panel-heading">
+          <%= link_to "#{service.name}", service_path(service) %>
+          <br>
+          $<%= service.rate %>
+        </div>
+        <div class="panel-body">
+          <p>
+            <%#= service.description %>
+            Service Description Goes Here
+            Add service created at date
+            add weekly figures
+          </p>
+        </div>
+        <table class="table  table-bordered ">
+          <tr>
+            <td>
+              Past Bookings
+            </td>
+            <td>
+              Future Bookings
+            </td>
+            <td>
+              Today's bookings
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= past_bookings(service) %>
+            </td>
+            <td>
+              <%= future_bookings(service) %>
+            </td>
+            <td>
+              <%= current_bookings(service) %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>

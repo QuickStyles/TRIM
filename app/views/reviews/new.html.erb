@@ -1,0 +1,19 @@
+<div class="col-md-3"></div>
+
+<div class="col-md-6">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Leave a review</h3>
+      <h3 class="panel-title"><%= @booking.service.name %> by <%= @booking.service.provider.user.first_name %></h3>
+    </div>
+    <div class="panel-body">
+      <%= simple_form_for [@booking, @review] do |review| %>
+      <%= review.input :rating, collection: 1..5 %>
+      <%= review.input :body %>
+      <%= review.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-3"></div>

@@ -1,0 +1,20 @@
+<% @services.each do|service| %>
+  <div class="col-md-4">
+    <div class="panel panel-primary" data-href="<% link_to service_path(service) %>">
+      <div class="panel-heading">
+        <%= service.name %>
+        <br>
+        $<%= service.rate %>
+      </div>
+      <div class="panel-body">
+        <p>
+          <%#= service.description %>
+          Service Description Goes Here
+          Add service created at date
+          add weekly figures
+        </p>
+        <%= link_to "Details", service_path(service), class:'btn btn-default col-md-12' %>
+      </div>
+    </div>
+  </div>
+<% end %>

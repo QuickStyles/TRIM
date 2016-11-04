@@ -1,0 +1,35 @@
+<div class="col-md-12">
+  <% @services.each do |service| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= service.name %></h3>
+    </div>
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          appointment date
+        </td>
+        <td>
+          created at
+        </td>
+        <td>
+          client
+        </td>
+      </tr>
+      <% service.bookings.each do |booking| %>
+      <tr>
+        <td>
+          <%= booking.time_start %>
+        </td>
+        <td>
+          <%= booking.created_at %>
+        </td>
+        <td>
+          <%= booking.customer.user.first_name %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <% end %>
+</div>

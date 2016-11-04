@@ -1,0 +1,40 @@
+<div class="col-md-6">
+  <div class="panel panel-primary sign-up-form">
+    <div class="panel-heading">
+      <h3 class="panel-title">Log In</h3>
+    </div>
+    <div class="panel-body">
+      <%= form_tag sessions_path do %>
+        <form>
+          <div class="form-group">
+            <div>
+              <%= label_tag :email %>
+            </div>
+            <%= text_field_tag :email, "", class:'form-control'%>
+          </div>
+          <div class="form-group">
+            <div>
+              <%= label_tag :password %>
+            </div>
+            <%= password_field_tag :password, "", class:'form-control' %>
+          </div>
+          <div class="form-group">
+            <div>
+              <%= submit_tag "Login", class:'btn btn-default' %>
+            </div>
+          </div>
+        </form>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="panel panel-primary sign-up-form">
+    <div class="panel-heading">
+      <h3 class="panel-title">Or</h3>
+    </div>
+    <div class="panel-body">
+      <%= link_to "Log In With Google", sign_in_with_google_path %>
+    </div>
+  </div>
+</div>
