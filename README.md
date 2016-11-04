@@ -10,8 +10,8 @@
 * CSS styling with Bootstrap
 
 ## Features to come
-[ ] In app calendar display
-[ ] Automatic appointment booking
-[ ] Search functionality and filtered results
-[ ] AASM
-[ ] Google Map API Integration
+- [ ] In app calendar display
+- [ ] Automatic appointment booking
+- [ ] Search functionality and filtered results
+- [ ] AASM
+- [ ] Google Map API Integration
