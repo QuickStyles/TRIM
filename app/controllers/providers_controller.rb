@@ -1,13 +1,7 @@
 class ProvidersController < ApplicationController
   def index
     @services = Service.provider_services(provider)
-    services_income_array = []
-    provider.services.each do |service|
-      services_income_array << (service.bookings.count * service.rate)
-    end
-    @income = services_income_array.reduce(:+)
     @booking = provider.bookings
-
     @revenue_data = chart_data(provider.revenue_data(previous_year),
                                provider.revenue_data(current_year))
     @booking_data = chart_data(provider.booking_data(previous_year),

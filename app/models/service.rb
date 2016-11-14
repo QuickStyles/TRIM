@@ -2,6 +2,7 @@ class Service < ApplicationRecord
   belongs_to :provider
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
+  has_many :customers, through: :bookings
 
   validates :name, presence: true
   validates :rate, presence: true
