@@ -1,3 +1,7 @@
+<div style="width: 800px">
+  <div id="map" style='height: 400px;'></div>
+</div>
+
 <p>Recent Bookings(Past 7 days)</p>
 <div class="container">
   <% @bookings.each do |booking| %>
@@ -35,3 +39,12 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%= raw services_json(@services).to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>

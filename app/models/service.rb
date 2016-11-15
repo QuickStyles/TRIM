@@ -10,6 +10,9 @@ class Service < ApplicationRecord
   validates :duration, presence: true
   validates :provider_id, presence: true
 
+  geocoded_by :address
+  after_validation :geocode
+
   def self.provider_services(user)
     Service.where(provider_id: user)
   end

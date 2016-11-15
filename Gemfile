@@ -42,6 +42,10 @@ gem 'stripe'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'geocoder'
+gem 'underscore-rails'
+gem 'gmaps4rails'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rails-controller-testing'

@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   def index
     @bookings = current_user.person.bookings.where('created_at >= ?', 1.week.ago).order(created_at: :desc)
+    @services = Service.where.not(latitude: nil)
   end
 
   def show
